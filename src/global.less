@@ -1,0 +1,78 @@
+@import "~antd/dist/antd.less";
+
+.demo-class {
+  background: blue;
+}
+
+.ui-page {
+  padding: 15px;
+}
+
+.gen-code-page {
+  padding: 10px 30px;
+  background: #fafafa;
+
+  .stage {
+    border: 1px solid #ddd;
+    background: #fff;
+    padding: 10px;
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.1);
+    min-height: 750px;
+  }
+
+  .tool {
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+    list-style: none;
+    margin: 5px;
+    padding: 10px 10px 10px 40px;
+    border: 1px dashed #ddd;
+
+    &__icon {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 40px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    &__name {
+    }
+  }
+
+  .editable {
+    position: relative;
+    padding: 0 8px;
+    cursor: pointer;
+    outline: 2px dotted transparent;
+    border-radius: 5px;
+
+    &:hover, &.active {
+      outline-color: #e6a23c;
+      background: rgba(230, 162, 60, 0.2);
+
+      .editable__actions {
+        display: block;
+      }
+    }
+
+    &__actions {
+      display: none;
+      position: absolute;
+      top: -2px;
+      right: 0;
+      font-size: 18px;
+      padding-right: 10px;
+
+      .ant-btn {
+        margin-left: 8px;
+      }
+    }
+  }
+}
