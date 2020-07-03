@@ -3,7 +3,6 @@ import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 
 const Editor = ({ style = {}, value, onChange }) => {
-  style.height = style.height || 300;
   const formats = [
     "header",
     "font",

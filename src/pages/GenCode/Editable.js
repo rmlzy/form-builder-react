@@ -2,7 +2,7 @@ import React from "react";
 import { Button } from "antd";
 import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
 import classnames from "classnames";
-import { EditH2, EditP, EditDivider, EditTable } from "./components";
+import { EditH2, EditP, EditDivider, EditTable, EditRow, EditInput } from "./components";
 
 const Editable = ({ active = false, block = {}, children, onClick, onRemove, onChange }) => {
   const [visible, setVisible] = React.useState(false);
@@ -32,16 +32,22 @@ const Editable = ({ active = false, block = {}, children, onClick, onRemove, onC
         </Button>
       </div>
       {block.component === "H2" && (
-        <EditH2 text={block.text} visible={visible} onOk={onOk} onCancel={() => setVisible(false)} />
+        <EditH2 option={block} visible={visible} onOk={onOk} onCancel={() => setVisible(false)} />
       )}
       {block.component === "P" && (
-        <EditP text={block.text} visible={visible} onOk={onOk} onCancel={() => setVisible(false)} />
+        <EditP option={block} visible={visible} onOk={onOk} onCancel={() => setVisible(false)} />
       )}
       {block.component === "Divider" && (
-        <EditDivider text={block.text} visible={visible} onOk={onOk} onCancel={() => setVisible(false)} />
+        <EditDivider option={block} visible={visible} onOk={onOk} onCancel={() => setVisible(false)} />
       )}
       {block.component === "Table" && (
         <EditTable option={block} visible={visible} onOk={onOk} onCancel={() => setVisible(false)} />
+      )}
+      {block.component === "Row" && (
+        <EditRow option={block} visible={visible} onOk={onOk} onCancel={() => setVisible(false)} />
+      )}
+      {block.component === "Input" && (
+        <EditInput option={block} visible={visible} onOk={onOk} onCancel={() => setVisible(false)} />
       )}
     </div>
   );

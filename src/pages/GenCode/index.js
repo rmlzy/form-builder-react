@@ -21,7 +21,7 @@ export default class GenCode extends React.Component {
         plain: true,
         dashed: false,
       },
-      { icon: "G", name: "栅格", component: "Row" },
+      { icon: "G", name: "栅格", component: "Row", gutter: 0, cols: "8 8 8" },
       {
         icon: "B",
         name: "表格",
@@ -46,13 +46,14 @@ export default class GenCode extends React.Component {
           },
         ],
       },
+      { icon: "I", name: "文本输入框", component: "Input" },
     ],
 
     schema: [
       {
-        component: "H2",
-        text: "这里是标题",
-        title: "这里是标题的 Title",
+        component: "Input",
+        label: "输入框",
+        name: "field",
       },
     ],
   };

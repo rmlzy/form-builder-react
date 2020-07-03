@@ -12,6 +12,16 @@
   padding: 10px 30px;
   background: #fafafa;
 
+  .row-highlight {
+    min-height: 40px;
+    outline: 1px solid #ddd;
+  }
+
+  .col-highlight {
+    min-height: 40px;
+    border: 1px solid #ddd;
+  }
+
   .stage {
     border: 1px solid #ddd;
     background: #fff;
@@ -51,11 +61,12 @@
     padding: 0 8px;
     cursor: pointer;
     outline: 2px dotted transparent;
-    border-radius: 5px;
+    outline-offset: 2px;
+    margin-bottom: 10px;
 
     &:hover, &.active {
       outline-color: #e6a23c;
-      background: rgba(230, 162, 60, 0.2);
+      background: rgba(230, 162, 60, 0.1);
 
       .editable__actions {
         display: block;

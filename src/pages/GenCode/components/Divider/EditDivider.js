@@ -1,20 +1,20 @@
 import React from "react";
-import { Modal, Form, Input, Switch, Radio } from "antd";
+import { Drawer, Form, Input, Switch, Radio, Button } from "antd";
 
-const EditDivider = ({ text, visible, onOk, onCancel }) => {
+const EditDivider = ({ option, visible, onOk, onCancel }) => {
   const [form] = Form.useForm();
-  const initialValues = { text };
+  const initialValues = option;
   const onFinish = (values) => {
     onOk(values);
   };
-  const onModalOk = () => {
+  const onDrawerOk = () => {
     form.submit();
   };
-  const onModalCancel = () => {
+  const onDrawerCancel = () => {
     onCancel();
   };
   return (
-    <Modal title="编辑分割线" visible={visible} onOk={onModalOk} onCancel={onModalCancel}>
+    <Drawer width="40%" title="分割线配置" visible={visible} onClose={onDrawerCancel}>
       <Form form={form} initialValues={initialValues} layout="vertical" onFinish={onFinish}>
         <Form.Item label="内容" name="text">
           <Input placeholder="请输入内容" />
@@ -32,8 +32,13 @@ const EditDivider = ({ text, visible, onOk, onCancel }) => {
             <Radio value="right">右边</Radio>
           </Radio.Group>
         </Form.Item>
+        <Form.Item>
+          <Button type="primary" onClick={onDrawerOk}>
+            保存
+          </Button>
+        </Form.Item>
       </Form>
-    </Modal>
+    </Drawer>
   );
 };
 

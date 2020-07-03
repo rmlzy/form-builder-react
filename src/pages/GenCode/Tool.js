@@ -11,7 +11,7 @@ const Tool = ({ onDrop, ...rest }) => {
       const dropResult = monitor.getDropResult();
       if (item && dropResult) {
         onDrop(item);
-        console.log(`You dropped ${item.component} into ${dropResult.name}!`);
+        console.log(`把 ${item.component} 拖入 ${dropResult.name}!`);
       }
     },
     collect: (monitor) => ({

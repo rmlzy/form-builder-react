@@ -1,26 +1,32 @@
 import React from "react";
-import { Modal, Form, Input } from "antd";
+import { Drawer, Form, Button } from "antd";
+import { Editor } from "../index";
 
-const EditH2 = ({ text, visible, onOk, onCancel }) => {
+const EditH2 = ({ option, visible, onOk, onCancel }) => {
   const [form] = Form.useForm();
-  const initialValues = { text };
+  const initialValues = option;
   const onFinish = (values) => {
     onOk(values);
   };
-  const onModalOk = () => {
+  const onDrawerOk = () => {
     form.submit();
   };
-  const onModalCancel = () => {
+  const onDrawerCancel = () => {
     onCancel();
   };
   return (
-    <Modal title="编辑标题" visible={visible} onOk={onModalOk} onCancel={onModalCancel}>
+    <Drawer width="40%" title="标题配置" visible={visible} onClose={onDrawerCancel}>
       <Form form={form} initialValues={initialValues} layout="vertical" onFinish={onFinish}>
         <Form.Item label="内容" name="text" rules={[{ required: true, message: "必填项" }]}>
-          <Input placeholder="请输入内容" value={text} />
+          <Editor />
+        </Form.Item>
+        <Form.Item>
+          <Button type="primary" onClick={onDrawerOk}>
+            保存
+          </Button>
         </Form.Item>
       </Form>
-    </Modal>
+    </Drawer>
   );
 };
 
