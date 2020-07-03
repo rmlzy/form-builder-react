@@ -4,6 +4,10 @@
   background: blue;
 }
 
+.text-danger {
+  color: #ff4d4f;
+}
+
 .ui-page {
   padding: 15px;
 }
@@ -12,14 +16,24 @@
   padding: 10px 30px;
   background: #fafafa;
 
+  .ant-form-item {
+    margin-bottom: 0 !important;
+  }
+
+  p {
+    margin-bottom: 0 !important;
+  }
+
   .row-highlight {
-    min-height: 40px;
-    outline: 1px solid #ddd;
+    min-height: 30px;
+    padding: 8px 10px;
+    outline: 1px dotted #ddd;
   }
 
   .col-highlight {
-    min-height: 40px;
-    border: 1px solid #ddd;
+    min-height: 30px;
+    padding: 8px 10px;
+    border: 1px dotted #ddd;
   }
 
   .stage {
@@ -28,6 +42,15 @@
     padding: 10px;
     box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.1);
     min-height: 750px;
+  }
+
+  .action-bar {
+    padding: 10px 0;
+    text-align: right;
+
+    .ant-btn {
+      margin-left: 8px;
+    }
   }
 
   .tool {
@@ -58,32 +81,74 @@
 
   .editable {
     position: relative;
-    padding: 0 8px;
+    padding: 1px 8px;
     cursor: pointer;
-    outline: 2px dotted transparent;
-    outline-offset: 2px;
-    margin-bottom: 10px;
+    outline: 2px solid transparent;
 
-    &:hover, &.active {
-      outline-color: #e6a23c;
-      background: rgba(230, 162, 60, 0.1);
+    &:after {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      display: block;
+      z-index: 8;
+      content: "";
+    }
 
-      .editable__actions {
-        display: block;
+    &.canDrop {
+      &:after {
+        display: none;
       }
+
+      &.active {
+        outline-color: #e6a23c;
+        background: transparent;
+
+        .editable__drag,
+        .editable__actions {
+          background: #e6a23c;
+        }
+      }
+    }
+
+    &.active {
+      outline-color: #409eff;
+      background: #ecf5ff;
+
+      .editable__drag,
+      .editable__actions {
+        display: flex;
+      }
+    }
+
+    &__drag {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 20px;
+      height: 20px;
+      font-size: 14px;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      background: #409eff;
+      z-index: 10;
     }
 
     &__actions {
       display: none;
       position: absolute;
-      top: -2px;
       right: 0;
-      font-size: 18px;
-      padding-right: 10px;
-
-      .ant-btn {
-        margin-left: 8px;
-      }
+      bottom: 0;
+      align-items: center;
+      justify-content: space-between;
+      color: #fff;
+      background: #409eff;
+      font-size: 16px;
+      padding: 5px 8px;
+      z-index: 10;
     }
   }
 }
