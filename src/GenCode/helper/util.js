@@ -86,7 +86,7 @@ export const getTools = () => {
 };
 
 export const getToolNames = () => {
-  return Object.keys(Tools).filter((name) => !name.startsWith("Edit") && !name.endsWith("Meta"));
+  return Object.keys(Tools).filter((name) => !name.endsWith("Edit") && !name.endsWith("Meta"));
 };
 
 /**
@@ -209,7 +209,6 @@ export default AwesomeForm;`;
 
 export const findAndRemove = (schema, uuid) => {
   schema = _.cloneDeep(schema);
-  console.log("please remove ", uuid);
   schema = schema.filter((block) => block.uuid !== uuid);
   schema = schema.map((block) => {
     if (_.isArray(block.childes)) {

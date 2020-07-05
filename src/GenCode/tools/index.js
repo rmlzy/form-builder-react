@@ -1,38 +1,45 @@
-import { _P as P, PMeta } from "./P/P";
-import EditP from "./P/EditP";
-import { _Divider as Divider, DividerMeta } from "./Divider/Divider";
-import EditDivider from "./Divider/EditDivider";
-import { _Table as Table, TableMeta } from "./Table/Table";
-import EditTable from "./Table/EditTable";
-import { _Row as Row, RowMeta } from "./Row/Row";
-import EditRow from "./Row/EditRow";
-import { _Input as Input, InputMeta } from "./Input/Input";
-import EditInput from "./Input/EditInput";
-import { _PageHeader as PageHeader, PageHeaderMeta } from "./PageHeader/PageHeader";
-import EditPageHeader from "./PageHeader/EditPageHeader";
-import { _Switch as Switch, SwitchMeta } from "./Switch/Switch";
-import EditSwitch from "./Switch/EditSwitch";
+import Divider from "./Divider/Divider";
+import DividerMeta from "./Divider/DividerMeta";
+import DividerEdit from "./Divider/DividerEdit";
+import Input from "./Input/Input";
+import InputMeta from "./Input/InputMeta";
+import InputEdit from "./Input/InputEdit";
+import P from "./P/P";
+import PMeta from "./P/PMeta";
+import PEdit from "./P/PEdit";
+import PageHeader from "./PageHeader/PageHeader";
+import PageHeaderMeta from "./PageHeader/PageHeaderMeta";
+import PageHeaderEdit from "./PageHeader/PageHeaderEdit";
+import Row from "./Row/Row";
+import RowMeta from "./Row/RowMeta";
+import RowEdit from "./Row/RowEdit";
+import Switch from "./Switch/Switch";
+import SwitchMeta from "./Switch/SwitchMeta";
+import SwitchEdit from "./Switch/SwitchEdit";
+import Table from "./Table/Table";
+import TableMeta from "./Table/TableMeta";
+import TableEdit from "./Table/TableEdit";
 
 export {
-  P,
-  PMeta,
-  EditP,
   Divider,
   DividerMeta,
-  EditDivider,
-  Table,
-  EditTable,
-  TableMeta,
-  Row,
-  EditRow,
-  RowMeta,
+  DividerEdit,
   Input,
-  EditInput,
   InputMeta,
+  InputEdit,
+  P,
+  PMeta,
+  PEdit,
   PageHeader,
-  EditPageHeader,
   PageHeaderMeta,
+  PageHeaderEdit,
+  Row,
+  RowMeta,
+  RowEdit,
   Switch,
-  EditSwitch,
   SwitchMeta,
+  SwitchEdit,
+  Table,
+  TableMeta,
+  TableEdit,
 };

@@ -4,7 +4,7 @@ import _ from "lodash";
 import { v4 as uuidv4 } from "uuid";
 import "./style.less";
 
-const EditRow = ({ option, visible, onOk, onCancel }) => {
+export default ({ option, visible, onOk, onCancel }) => {
   const [form] = Form.useForm();
   const initialValues = _.cloneDeep(option);
   const [childes, setChildes] = React.useState(option.childes);
@@ -44,11 +44,7 @@ const EditRow = ({ option, visible, onOk, onCancel }) => {
           {childes.map((child) => {
             return (
               <div key={child.uuid} className="multiple-list">
-                <InputNumber
-                  style={{ width: "50%" }}
-                  value={child.span}
-                  onChange={(evt) => setColSpan(child, evt)}
-                />
+                <InputNumber style={{ width: "50%" }} value={child.span} onChange={(evt) => setColSpan(child, evt)} />
                 <span className="multiple-list__remove text-danger" onClick={() => removeCol(child)}>
                   删除
                 </span>
@@ -68,5 +64,3 @@ const EditRow = ({ option, visible, onOk, onCancel }) => {
     </Drawer>
   );
 };
-
-export default EditRow;

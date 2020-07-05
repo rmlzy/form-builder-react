@@ -3,7 +3,7 @@ import { Drawer, Form, Button, Switch, Input, Row, Col, Radio } from "antd";
 import _ from "lodash";
 import { TextEditor } from "../../components";
 
-const EditSwitch = ({ option, visible, onOk, onCancel }) => {
+export default ({ option, visible, onOk, onCancel }) => {
   option.extra = option.extra || "";
   option.size = option.size || "middle";
   const [form] = Form.useForm();
@@ -60,5 +60,3 @@ const EditSwitch = ({ option, visible, onOk, onCancel }) => {
     </Drawer>
   );
 };
-
-export default EditSwitch;

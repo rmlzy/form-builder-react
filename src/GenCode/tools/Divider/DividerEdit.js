@@ -1,7 +1,7 @@
 import React from "react";
 import { Drawer, Form, Input, Switch, Radio, Button } from "antd";
 
-const EditDivider = ({ option, visible, onOk, onCancel }) => {
+export default ({ option, visible, onOk, onCancel }) => {
   const [form] = Form.useForm();
   const initialValues = option;
   const onFinish = (values) => {
@@ -41,5 +41,3 @@ const EditDivider = ({ option, visible, onOk, onCancel }) => {
     </Drawer>
   );
 };
-
-export default EditDivider;

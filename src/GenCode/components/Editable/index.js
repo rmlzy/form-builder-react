@@ -23,7 +23,7 @@ const Editable = ({ block = {}, children }) => {
   };
   // 每个组件必须有一个 Edit*** 的配套组件
   const EditCmpt = (props) => {
-    const Cmpt = Tools[`Edit${props.component}`];
+    const Cmpt = Tools[`${props.component}Edit`];
     return Cmpt ? <Cmpt {...props} /> : null;
   };
   return (

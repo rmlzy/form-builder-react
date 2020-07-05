@@ -2,7 +2,7 @@ import React from "react";
 import { Drawer, Form, Button } from "antd";
 import { TextEditor } from "../../components";
 
-const EditPageHeader = ({ option, visible, onOk, onCancel }) => {
+export default ({ option, visible, onOk, onCancel }) => {
   const [form] = Form.useForm();
   const initialValues = option;
   const onFinish = (values) => {
@@ -35,5 +35,3 @@ const EditPageHeader = ({ option, visible, onOk, onCancel }) => {
     </Drawer>
   );
 };
-
-export default EditPageHeader;

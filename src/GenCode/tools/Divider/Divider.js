@@ -3,15 +3,7 @@ import _ from "lodash";
 import { Divider } from "antd";
 import { props2Text } from "../../helper/util";
 
-export const DividerMeta = {
-  component: "Divider",
-  componentIcon: "P",
-  componentName: "分割线",
-  dashed: true,
-  type: "horizontal",
-};
-
-export const _Divider = (option) => {
+export default (option) => {
   option.type = "horizontal";
   const props = _.pick(option, ["className", "dashed", "orientation", "style", "type", "plain"]);
   const component = <Divider {...props}>{option.text || ""}</Divider>;

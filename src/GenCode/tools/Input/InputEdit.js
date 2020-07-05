@@ -3,7 +3,7 @@ import { Drawer, Form, Button, Select, Input, Switch, InputNumber, Row, Col, Rad
 import _ from "lodash";
 import { TextEditor } from "../../components";
 
-const EditInput = ({ option, visible, onOk, onCancel }) => {
+export default ({ option, visible, onOk, onCancel }) => {
   option.extra = option.extra || "";
   option.size = option.size || "middle";
   option.htmlType = option.htmlType || "text";
@@ -76,5 +76,3 @@ const EditInput = ({ option, visible, onOk, onCancel }) => {
     </Drawer>
   );
 };
-
-export default EditInput;

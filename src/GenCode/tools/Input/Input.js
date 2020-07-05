@@ -3,15 +3,7 @@ import _ from "lodash";
 import { Input, Form } from "antd";
 import { props2Text, genRules } from "../../helper/util";
 
-export const InputMeta = {
-  component: "Input",
-  componentIcon: "T",
-  componentName: "单行文本",
-  label: "单行文本",
-  name: "field",
-};
-
-export const _Input = (option) => {
+export default (option) => {
   const formItemProps = _.pick(option, ["label", "extra", "required"]);
   const inputProps = _.pick(option, [
     "addonAfter",

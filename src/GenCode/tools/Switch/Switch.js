@@ -2,15 +2,7 @@ import React from "react";
 import { Form, Switch } from "antd";
 import _ from "lodash";
 
-export const SwitchMeta = {
-  component: "Switch",
-  componentIcon: "T",
-  componentName: "开关",
-  label: "开关",
-  name: "field",
-};
-
-export const _Switch = (option) => {
+export default (option) => {
   const props = _.pick(option, [
     "label",
     "extra",

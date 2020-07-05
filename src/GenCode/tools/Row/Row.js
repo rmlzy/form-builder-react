@@ -3,15 +3,7 @@ import { Row, Col } from "antd";
 import { Droppable, Editable } from "../../components";
 import { getToolComponent } from "../../helper/util";
 
-export const RowMeta = {
-  component: "Row",
-  componentIcon: "G",
-  componentName: "栅格",
-  gutter: 0,
-  childes: [],
-};
-
-export const _Row = ({ gutter, childes }) => {
+export default ({ gutter, childes }) => {
   const component = (
     <Row className="row-highlight" gutter={gutter}>
       {(childes || []).map((col, colIndex) => {
