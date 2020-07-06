@@ -104,6 +104,14 @@ export const props2Text = (props) => {
     if (value === undefined) {
       continue;
     }
+    if (_.isString(value) && value.startsWith("[")) {
+      texts.push(`${key}={${value}}`);
+      continue;
+    }
+    if (_.isString(value) && value.startsWith("{")) {
+      texts.push(`${key}={${value}}`);
+      continue;
+    }
     if (_.isString(value)) {
       texts.push(`${key}="${value}"`);
     } else {

@@ -1,6 +1,6 @@
 export default {
   component: "Divider",
   componentName: "分割线",
-  dashed: true,
+  dashed: false,
   type: "horizontal",
 };

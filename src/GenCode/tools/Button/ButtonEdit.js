@@ -18,12 +18,12 @@ export default ({ option, visible, onOk, onCancel }) => {
       <Form form={form} initialValues={initialValues} layout="vertical" onFinish={onFinish}>
         <Row gutter={20}>
           <Col span={12}>
-            <Form.Item label="内容" name="text" rules={[{ required: true, message: "必填项" }]}>
+            <Form.Item label="内容：" name="text" rules={[{ required: true, message: "必填项" }]}>
               <Input />
             </Form.Item>
           </Col>
           <Col span={12}>
-            <Form.Item label="类型" name="_type" rules={[{ required: true, message: "必填项" }]}>
+            <Form.Item label="类型：" name="_type" rules={[{ required: true, message: "必填项" }]}>
               <Select placeholder="请选择">
                 <Select.Option value="primary">primary</Select.Option>
                 <Select.Option value="ghost">ghost</Select.Option>
@@ -37,7 +37,7 @@ export default ({ option, visible, onOk, onCancel }) => {
         </Row>
         <Row gutter={20}>
           <Col span={12}>
-            <Form.Item label="形状" name="shape">
+            <Form.Item label="形状：" name="shape">
               <Radio.Group>
                 <Radio value="">默认</Radio>
                 <Radio value="circle">圆形</Radio>
@@ -46,7 +46,7 @@ export default ({ option, visible, onOk, onCancel }) => {
             </Form.Item>
           </Col>
           <Col span={12}>
-            <Form.Item label="尺寸" name="size">
+            <Form.Item label="尺寸：" name="size">
               <Radio.Group>
                 <Radio value="small">小号</Radio>
                 <Radio value="middle">中号</Radio>
@@ -57,7 +57,7 @@ export default ({ option, visible, onOk, onCancel }) => {
         </Row>
         <Row gutter={20}>
           <Col span={12}>
-            <Form.Item label="块状按钮" name="block" valuePropName="checked">
+            <Form.Item label="块状按钮：" name="block" valuePropName="checked">
               <Switch checkedChildren="是" unCheckedChildren="否" />
             </Form.Item>
           </Col>

@@ -5,6 +5,7 @@ import { Input, InputMeta, InputEdit } from "./Input";
 import { InputNumber, InputNumberMeta, InputNumberEdit } from "./InputNumber";
 import { P, PMeta, PEdit } from "./P";
 import { PageHeader, PageHeaderMeta, PageHeaderEdit } from "./PageHeader";
+import { Radio, RadioMeta, RadioEdit } from "./Radio";
 import { Row, RowMeta, RowEdit } from "./Row";
 import { Step, StepMeta, StepEdit } from "./Step";
 import { Switch, SwitchMeta, SwitchEdit } from "./Switch";
@@ -34,6 +35,9 @@ export {
   PageHeader,
   PageHeaderMeta,
   PageHeaderEdit,
+  Radio,
+  RadioMeta,
+  RadioEdit,
   Row,
   RowMeta,
   RowEdit,

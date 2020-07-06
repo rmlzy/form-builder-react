@@ -23,29 +23,19 @@ export default ({ option, visible, onOk, onCancel }) => {
       <Form form={form} initialValues={initialValues} layout="vertical" onFinish={onFinish}>
         <Row gutter={20}>
           <Col span={12}>
-            <Form.Item
-              label="标题"
-              name="label"
-              rules={[{ required: true, message: "必填项" }]}
-              extra="用于页面展示, 例如: 用户名"
-            >
+            <Form.Item label="标题：" name="label" rules={[{ required: true, message: "必填项" }]}>
               <Input type="text" />
             </Form.Item>
           </Col>
           <Col spa={12}>
-            <Form.Item
-              label="字段名称"
-              name="name"
-              rules={[{ required: true, message: "必填项" }]}
-              extra="提交给接口的名称, 例如: name"
-            >
+            <Form.Item label="字段名称：" name="name" rules={[{ required: true, message: "必填项" }]}>
               <Input type="text" />
             </Form.Item>
           </Col>
         </Row>
         <Row gutter={20}>
           <Col span={12}>
-            <Form.Item label="HTML类型" name="htmlType" rules={[{ required: true, message: "必填项" }]}>
+            <Form.Item label="HTML类型：" name="htmlType" rules={[{ required: true, message: "必填项" }]}>
               <Select placeholder="请选择">
                 <Select.Option value="text">文字</Select.Option>
                 <Select.Option value="email">邮箱</Select.Option>
@@ -56,24 +46,24 @@ export default ({ option, visible, onOk, onCancel }) => {
             </Form.Item>
           </Col>
           <Col span={12}>
-            <Form.Item label="是否必填" name="required" valuePropName="checked">
+            <Form.Item label="是否必填：" name="required" valuePropName="checked">
               <Switch checkedChildren="是" unCheckedChildren="否" />
             </Form.Item>
           </Col>
         </Row>
         <Row gutter={20}>
           <Col span={12}>
-            <Form.Item label="占位内容" name="placeholder">
+            <Form.Item label="占位内容：" name="placeholder">
               <Input type="text" />
             </Form.Item>
           </Col>
           <Col span={12}>
-            <Form.Item label="最大长度" name="maxLength">
+            <Form.Item label="最大长度：" name="maxLength">
               <InputNumber style={{ width: "100%" }} min={1} placeholder="留空代表不限制" />
             </Form.Item>
           </Col>
         </Row>
-        <Form.Item label="尺寸" name="size">
+        <Form.Item label="尺寸：" name="size">
           <Radio.Group>
             <Radio value="small">小号</Radio>
             <Radio value="middle">中号</Radio>
@@ -82,17 +72,17 @@ export default ({ option, visible, onOk, onCancel }) => {
         </Form.Item>
         <Row gutter={20}>
           <Col span={12}>
-            <Form.Item label="前缀" name="prefix">
+            <Form.Item label="前缀：" name="prefix">
               <Input type="text" placeholder="例如: +86" />
             </Form.Item>
           </Col>
           <Col span={12}>
-            <Form.Item label="后缀" name="suffix">
+            <Form.Item label="后缀：" name="suffix">
               <Input type="text" placeholder="例如: .com" />
             </Form.Item>
           </Col>
         </Row>
-        <Form.Item label="额外信息" name="extra">
+        <Form.Item label="额外信息：" name="extra">
           <TextEditor />
         </Form.Item>
         <Form.Item>

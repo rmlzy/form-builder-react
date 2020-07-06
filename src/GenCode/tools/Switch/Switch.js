@@ -16,7 +16,7 @@ export default (option) => {
   ]);
   const extra = props.extra ? <div dangerouslySetInnerHTML={{ __html: props.extra }} /> : "";
   const component = (
-    <Form.Item label={props.label} extra={extra} name={props.name}>
+    <Form.Item label={props.label} extra={extra} name={props.name} valuePropName="checked">
       <Switch {...props} />
     </Form.Item>
   );

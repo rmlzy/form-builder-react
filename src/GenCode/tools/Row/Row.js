@@ -2,11 +2,22 @@ import React from "react";
 import { Row, Col } from "antd";
 import { Droppable, Editable } from "../../components";
 import { getToolComponent } from "../../helper/util";
+import { v4 as uuidv4 } from "uuid";
 
-export default ({ gutter, childes }) => {
+export default (option) => {
+  const { gutter } = option;
+  const defaultChildes = [
+    { span: 8, component: "Col", uuid: `Col__${uuidv4()}`, childes: [] },
+    { span: 8, component: "Col", uuid: `Col__${uuidv4()}`, childes: [] },
+    { span: 8, component: "Col", uuid: `Col__${uuidv4()}`, childes: [] },
+  ];
+  option.childes = option.childes || [];
+  if (option.childes.length === 0) {
+    option.childes = defaultChildes;
+  }
   const component = (
     <Row className="row-highlight" gutter={gutter}>
-      {(childes || []).map((col, colIndex) => {
+      {(option.childes || []).map((col, colIndex) => {
         const colChildEl = (col.childes || []).map((child, childIndex) => (
           <Editable key={childIndex} block={child}>
             {getToolComponent(child)}

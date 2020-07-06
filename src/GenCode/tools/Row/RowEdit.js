@@ -40,7 +40,7 @@ export default ({ option, visible, onOk, onCancel }) => {
         <Form.Item label="列间隔, 单位: px" name="gutter">
           <InputNumber style={{ width: "100%" }} min={0} />
         </Form.Item>
-        <Form.Item label="列">
+        <Form.Item label="列：">
           {childes.map((child) => {
             return (
               <Row key={child.uuid} gutter={20} style={{ marginBottom: 10 }}>

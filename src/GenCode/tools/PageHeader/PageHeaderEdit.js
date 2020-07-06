@@ -17,13 +17,13 @@ export default ({ option, visible, onOk, onCancel }) => {
   return (
     <Drawer width="40%" title="页头配置" visible={visible} onClose={onDrawerCancel}>
       <Form form={form} initialValues={initialValues} layout="vertical" onFinish={onFinish}>
-        <Form.Item label="标题" name="title" rules={[{ required: true, message: "必填项" }]}>
+        <Form.Item label="标题：" name="title" rules={[{ required: true, message: "必填项" }]}>
           <TextEditor />
         </Form.Item>
-        <Form.Item label="副标题" name="subTitle">
+        <Form.Item label="副标题：" name="subTitle">
           <TextEditor />
         </Form.Item>
-        <Form.Item label="操作区" name="extra">
+        <Form.Item label="操作区：" name="extra">
           <TextEditor />
         </Form.Item>
         <Form.Item>
