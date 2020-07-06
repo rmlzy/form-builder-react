@@ -1,15 +1,17 @@
 import React from "react";
-import { InputNumber, Button, message, Modal } from "antd";
+import { InputNumber, message, Modal, Button } from "antd";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import _ from "lodash";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import fileDownload from "js-file-download";
 import { Tool, Stage } from "./components";
 import { CodeEditor } from "./components";
-import { selectSchema, selectTools } from "./helper/redux";
-import { schema2code, genClassCode } from "./helper/util";
+import { selectSchema, selectTools, setSchema } from "./helper/redux";
+import { schema2code } from "./helper/util";
 
 const GenCode = () => {
+  const dispatch = useDispatch();
   const tools = _.cloneDeep(useSelector(selectTools));
   const schema = _.cloneDeep(useSelector(selectSchema));
   const safeStringify = (json) => {
@@ -25,35 +27,39 @@ const GenCode = () => {
 
   const [schemaVisible, setSchemaVisible] = React.useState(false);
   const [codeVisible, setCodeVisible] = React.useState(false);
-  const [width, setWidth] = React.useState(980);
-  const [height, setHeight] = React.useState(750);
-  const code = genClassCode(schema2code(schema));
+  const [code, setCode] = React.useState({});
+  const showCode = async () => {
+    try {
+      const res = await schema2code(schema);
+      if (res.success) {
+        setCode(res.data);
+        setCodeVisible(true);
+      } else {
+        message.error(res.message);
+      }
+    } catch (e) {
+      message.error(e.message);
+    }
+  };
+  const downloadFile = () => {
+    fileDownload(code.text, `${code.uuid}.js`);
+  };
   return (
     <DndProvider backend={HTML5Backend}>
       <div className="gen-code-page layout">
         <div className="layout__hd clearfix">
-          <div className="action pull-left">
-            <InputNumber value={width} onChange={(val) => setWidth(val)} />
-          </div>
-          <div className="action pull-left">
-            <span>×</span>️
-          </div>
-          <div className="action pull-left">
-            <InputNumber value={height} onChange={(val) => setHeight(val)} />
-          </div>
-          <div className="action pull-right">
-            <span className="a" onClick={() => setCodeVisible(true)}>
-              查看Code
-            </span>
-          </div>
-          <div className="action pull-right">
-            <span className="a" style={{ marginRight: 10 }} onClick={() => setSchemaVisible(true)}>
-              查看Schema
-            </span>
-          </div>
+          <Button type="link" onClick={showCode}>
+            查看Code
+          </Button>
+          <Button type="link" onClick={() => setSchemaVisible(true)}>
+            查看Schema
+          </Button>
+          <Button type="link" danger onClick={() => dispatch(setSchema([]))}>
+            清空
+          </Button>
         </div>
         <div className="layout__bd">
-          <Stage schema={schema} width={width} height={height} />
+          <Stage schema={schema} />
         </div>
         <div className="layout__sd">
           {tools.map((tool, i) => {
@@ -77,11 +83,12 @@ const GenCode = () => {
         title="Code"
         width="80%"
         visible={codeVisible}
-        footer={null}
-        onOk={() => setCodeVisible(false)}
+        okText="下载"
+        cancelText="关闭"
+        onOk={downloadFile}
         onCancel={() => setCodeVisible(false)}
       >
-        <CodeEditor value={code} />
+        <CodeEditor value={code.text} />
       </Modal>
     </DndProvider>
   );

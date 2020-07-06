@@ -5,7 +5,7 @@ import GenCode from "./GenCode";
 export default () => (
   <Router>
     <Switch>
-      <Route exact path="/gen-code">
+      <Route exact path="/">
         <GenCode />
       </Route>
     </Switch>

@@ -15,7 +15,6 @@ export default (option) => {
     "decimalSeparator",
     "step",
   ]);
-  inputProps.style = option.style || { width: "100%" };
   inputProps.type = option.htmlType || "text";
   const extraEl = genDangerHtml(option.extra);
   const rulesJson = genRules({ required: option.required });

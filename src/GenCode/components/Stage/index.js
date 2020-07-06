@@ -8,14 +8,14 @@ import { Droppable, Editable } from "../index";
 import { getToolComponent } from "../../helper/util";
 import { selectSchema, setSchema, setActiveUuid } from "../../helper/redux";
 
-const Stage = ({ width, height }) => {
+const Stage = () => {
   const [form] = Form.useForm();
   const uuid = `Stage__${uuidv4()}`;
   const schemaCopy = _.cloneDeep(useSelector(selectSchema));
   const dispatch = useDispatch();
   return (
     <Droppable name="Stage" uuid={uuid}>
-      <div className="stage" style={{ width, height }} onClick={() => dispatch(setActiveUuid(""))}>
+      <div className="stage" onClick={() => dispatch(setActiveUuid(""))}>
         <Form form={form} layout="vertical">
           <ReactSortable
             list={schemaCopy}

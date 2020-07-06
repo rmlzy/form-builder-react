@@ -39,7 +39,7 @@ export default (option) => {
     const stepProps = props2Text({
       value: item.value,
     });
-    return `<Radio ${props2Text(stepProps)}>${item.label}</Radio>`;
+    return `<Radio ${stepProps}>${item.label}</Radio>`;
   });
   const text = `
   <Form.Item ${props2Text(formItemPropText)}>

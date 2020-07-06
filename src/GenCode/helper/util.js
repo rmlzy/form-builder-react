@@ -1,5 +1,6 @@
 import React from "react";
 import _ from "lodash";
+import axios from "axios";
 import * as Tools from "../tools";
 
 /**
@@ -154,7 +155,8 @@ export const schema2code = (schema) => {
   });
   codes.unshift(`<Form layout="vertical">`);
   codes.push(`</Form>`);
-  return codes.join("\n");
+  const fileText = genClassCode(codes.join("\n"));
+  return formatCode(fileText);
 };
 
 /**
@@ -188,13 +190,11 @@ export const genClassCode = (code) => {
 import React from "react";
 ${importStr}
 
-class AwesomeForm extends React.Component {
+export default class AwesomeForm extends React.Component {
   render() {
     return ${code}
   }
-}
-
-export default AwesomeForm;`;
+}`;
 };
 
 /**
@@ -257,4 +257,12 @@ export const findAndEdit = (schema, uuid, newData) => {
     return block;
   });
   return schema;
+};
+
+export const formatCode = (code) => {
+  return axios({
+    method: "POST",
+    url: "/api/builder/format",
+    data: { code },
+  }).then((res) => res.data);
 };
