@@ -2,7 +2,6 @@ import React from "react";
 import { Drawer, Form, Button, InputNumber } from "antd";
 import _ from "lodash";
 import { v4 as uuidv4 } from "uuid";
-import "./style.less";
 
 export default ({ option, visible, onOk, onCancel }) => {
   const [form] = Form.useForm();

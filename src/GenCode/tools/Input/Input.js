@@ -1,7 +1,7 @@
 import React from "react";
 import _ from "lodash";
 import { Input, Form } from "antd";
-import { props2Text, genRules } from "../../helper/util";
+import { props2Text, genRules, genDangerHtml } from "../../helper/util";
 
 export default (option) => {
   const inputProps = _.pick(option, [
@@ -16,11 +16,9 @@ export default (option) => {
     "suffix",
     "allowClear",
     "placeholder",
-    "style",
-    "className",
   ]);
   inputProps.type = option.htmlType || "text";
-  const extraEl = option.extra ? <div dangerouslySetInnerHTML={{ __html: option.extra }} /> : "";
+  const extraEl = genDangerHtml(option.extra);
   const rulesJson = genRules({ required: option.required });
   const component = (
     <Form.Item label={option.label} extra={extraEl} rules={rulesJson}>

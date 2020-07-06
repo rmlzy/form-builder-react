@@ -18,7 +18,7 @@ export default ({ option, visible, onOk, onCancel }) => {
     onCancel();
   };
   return (
-    <Drawer width="40%" title="多行文本配置" visible={visible} onClose={onDrawerCancel}>
+    <Drawer width="40%" title="评分配置" visible={visible} onClose={onDrawerCancel}>
       <Form form={form} initialValues={initialValues} layout="vertical" onFinish={onFinish}>
         <Row gutter={20}>
           <Col span={12}>
@@ -49,20 +49,20 @@ export default ({ option, visible, onOk, onCancel }) => {
             </Form.Item>
           </Col>
           <Col span={12}>
-            <Form.Item label="行" name="rows">
+            <Form.Item label="star 总数" name="count">
               <InputNumber style={{ width: "100%" }} min={1} />
             </Form.Item>
           </Col>
         </Row>
         <Row gutter={20}>
           <Col span={12}>
-            <Form.Item label="占位内容" name="placeholder">
-              <Input type="text" />
+            <Form.Item label="是否允许半选" name="allowHalf">
+              <Switch checkedChildren="是" unCheckedChildren="否" />
             </Form.Item>
           </Col>
           <Col span={12}>
-            <Form.Item label="最大长度" name="maxLength">
-              <InputNumber style={{ width: "100%" }} min={1} placeholder="留空代表不限制" />
+            <Form.Item label="是否允许再次点击后清除" name="allowClear">
+              <Switch checkedChildren="是" unCheckedChildren="否" />
             </Form.Item>
           </Col>
         </Row>

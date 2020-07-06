@@ -162,6 +162,10 @@ export const genRules = ({ required }) => {
   return rules;
 };
 
+export const genDangerHtml = (text) => {
+  return text ? <div dangerouslySetInnerHTML={{ __html: text }} /> : "";
+};
+
 /**
  * 生成类风格的代码
  * @param code

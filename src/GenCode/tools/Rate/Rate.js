@@ -1,23 +1,23 @@
 import React from "react";
 import _ from "lodash";
-import { Input, Form } from "antd";
+import { Rate, Form } from "antd";
 import { props2Text, genRules, genDangerHtml } from "../../helper/util";
 
 export default (option) => {
   const inputProps = _.pick(option, [
     "defaultValue",
     "disabled",
-    "maxLength",
+    "allowClear",
+    "allowHalf",
+    "count",
     "size",
     "allowClear",
-    "placeholder",
-    "rows",
   ]);
   const extraEl = genDangerHtml(option.extra);
   const rulesJson = genRules({ required: option.required });
   const component = (
     <Form.Item label={option.label} extra={extraEl} rules={rulesJson}>
-      <Input.TextArea {...inputProps} />
+      <Rate {...inputProps} />
     </Form.Item>
   );
   const formItemPropText = {
@@ -27,7 +27,7 @@ export default (option) => {
   };
   const text = `
   <Form.Item ${props2Text(formItemPropText)}>
-      <Input.TextArea ${props2Text(inputProps)} />
+      <Rate ${props2Text(inputProps)} />
   </Form.Item>
   `;
   return { component, text };
