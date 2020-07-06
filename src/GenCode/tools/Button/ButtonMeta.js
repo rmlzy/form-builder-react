@@ -1,6 +1,5 @@
 export default {
   component: "Button",
-  componentIcon: "B",
   componentName: "按钮",
   text: "按钮",
   shape: "",

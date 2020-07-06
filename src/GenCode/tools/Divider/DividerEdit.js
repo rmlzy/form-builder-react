@@ -19,10 +19,10 @@ export default ({ option, visible, onOk, onCancel }) => {
         <Form.Item label="内容" name="text">
           <Input placeholder="请输入内容" />
         </Form.Item>
-        <Form.Item label="使用普通文字" name="plain">
+        <Form.Item label="使用普通文字" name="plain" valuePropName="checked">
           <Switch />
         </Form.Item>
-        <Form.Item label="是否虚线" name="dashed">
+        <Form.Item label="是否虚线" name="dashed" valuePropName="checked">
           <Switch />
         </Form.Item>
         <Form.Item label="标题位置" name="orientation">

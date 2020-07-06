@@ -57,7 +57,7 @@ export default ({ option, visible, onOk, onCancel }) => {
         </Row>
         <Row gutter={20}>
           <Col span={12}>
-            <Form.Item label="块状按钮" name="block">
+            <Form.Item label="块状按钮" name="block" valuePropName="checked">
               <Switch checkedChildren="是" unCheckedChildren="否" />
             </Form.Item>
           </Col>

@@ -1,7 +1,6 @@
 export default {
   component: "Input",
-  componentIcon: "T",
-  componentName: "单行文本",
-  label: "单行文本",
+  componentName: "输入框",
+  label: "输入框",
   name: "field",
 };

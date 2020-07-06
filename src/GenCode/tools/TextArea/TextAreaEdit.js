@@ -18,7 +18,7 @@ export default ({ option, visible, onOk, onCancel }) => {
     onCancel();
   };
   return (
-    <Drawer width="40%" title="多行文本配置" visible={visible} onClose={onDrawerCancel}>
+    <Drawer width="40%" title="文本域配置" visible={visible} onClose={onDrawerCancel}>
       <Form form={form} initialValues={initialValues} layout="vertical" onFinish={onFinish}>
         <Row gutter={20}>
           <Col span={12}>
@@ -44,7 +44,7 @@ export default ({ option, visible, onOk, onCancel }) => {
         </Row>
         <Row gutter={20}>
           <Col span={12}>
-            <Form.Item label="是否必填" name="required">
+            <Form.Item label="是否必填" name="required" valuePropName="checked">
               <Switch checkedChildren="是" unCheckedChildren="否" />
             </Form.Item>
           </Col>

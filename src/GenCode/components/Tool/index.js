@@ -23,8 +23,10 @@ const Tool = (props) => {
   const opacity = isDragging ? 0.4 : 1;
   return (
     <div ref={drag} className="tool" style={{ opacity }}>
-      <div className="tool__icon">{props.componentIcon}</div>
-      <div className="tool__name">{props.componentName}</div>
+      <div className="tool__name">
+        <b>{props.component}</b>
+        <span>{props.componentName}</span>
+      </div>
     </div>
   );
 };

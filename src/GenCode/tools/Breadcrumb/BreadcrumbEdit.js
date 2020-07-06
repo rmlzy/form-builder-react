@@ -1,6 +1,7 @@
 import React from "react";
-import { Drawer, Form, Button, Input } from "antd";
+import { Drawer, Form, Button, Input, Row, Col } from "antd";
 import _ from "lodash";
+import { PlusOutlined } from "@ant-design/icons";
 
 export default ({ option, visible, onOk, onCancel }) => {
   const [form] = Form.useForm();
@@ -37,19 +38,23 @@ export default ({ option, visible, onOk, onCancel }) => {
         <Form.Item label="路径">
           {childes.map((child, childIndex) => {
             return (
-              <div key={childIndex} className="multiple-list">
-                <Input
-                  style={{ width: "50%" }}
-                  value={child.text}
-                  onChange={(evt) => setRow(childIndex, evt.target.value)}
-                />
-                <span className="multiple-list__remove text-danger" onClick={() => removeRow(childIndex)}>
-                  删除
-                </span>
-              </div>
+              <Row key={childIndex} gutter={20} style={{ marginBottom: 10 }}>
+                <Col span={10}>
+                  <Input
+                    style={{ width: "100%" }}
+                    value={child.text}
+                    onChange={(evt) => setRow(childIndex, evt.target.value)}
+                  />
+                </Col>
+                <Col span={4}>
+                  <Button danger onClick={() => removeRow(childIndex)}>
+                    删除
+                  </Button>
+                </Col>
+              </Row>
             );
           })}
-          <Button type="primary" onClick={addRow}>
+          <Button icon={<PlusOutlined />} onClick={addRow} block>
             新增
           </Button>
         </Form.Item>

@@ -1,7 +1,8 @@
 import React from "react";
-import { Drawer, Form, Button, InputNumber } from "antd";
+import { Drawer, Form, Button, InputNumber, Row, Col } from "antd";
 import _ from "lodash";
 import { v4 as uuidv4 } from "uuid";
+import { PlusOutlined } from "@ant-design/icons";
 
 export default ({ option, visible, onOk, onCancel }) => {
   const [form] = Form.useForm();
@@ -42,15 +43,23 @@ export default ({ option, visible, onOk, onCancel }) => {
         <Form.Item label="列">
           {childes.map((child) => {
             return (
-              <div key={child.uuid} className="multiple-list">
-                <InputNumber style={{ width: "50%" }} value={child.span} onChange={(evt) => setColSpan(child, evt)} />
-                <span className="multiple-list__remove text-danger" onClick={() => removeCol(child)}>
-                  删除
-                </span>
-              </div>
+              <Row key={child.uuid} gutter={20} style={{ marginBottom: 10 }}>
+                <Col span={10}>
+                  <InputNumber
+                    style={{ width: "100%" }}
+                    value={child.span}
+                    onChange={(evt) => setColSpan(child, evt)}
+                  />
+                </Col>
+                <Col span={4}>
+                  <Button danger onClick={() => removeCol(child)}>
+                    删除
+                  </Button>
+                </Col>
+              </Row>
             );
           })}
-          <Button type="primary" onClick={() => addCol(1)}>
+          <Button icon={<PlusOutlined />} onClick={() => addCol(1)} block>
             新增
           </Button>
         </Form.Item>

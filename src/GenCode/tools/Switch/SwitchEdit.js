@@ -26,8 +26,8 @@ export default ({ option, visible, onOk, onCancel }) => {
         <Form.Item label="字段名称" name="name" rules={[{ required: true, message: "必填项" }]}>
           <Input type="text" placeholder="提交给接口的名称, 例如: name" />
         </Form.Item>
-        <Form.Item label="默认启用" name="defaultChecked">
-          <Switch checkedChildren="是" unCheckedChildren="否" defaultChecked={true} />
+        <Form.Item label="默认启用" name="defaultChecked" valuePropName="checked">
+          <Switch checkedChildren="是" unCheckedChildren="否" />
         </Form.Item>
         <Form.Item label="尺寸" name="size">
           <Radio.Group>

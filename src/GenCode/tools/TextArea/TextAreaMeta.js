@@ -1,8 +1,7 @@
 export default {
   component: "TextArea",
-  componentIcon: "T",
-  componentName: "多行文本",
-  label: "多行文本",
+  componentName: "文本域",
+  label: "文本域",
   name: "field",
   rows: 4,
 };
