@@ -1,11 +1,10 @@
 import React from "react";
-import { Drawer, Form, Button, Select, Input, Switch, InputNumber, Row, Col, Radio } from "antd";
+import { Drawer, Form, Button, Input, Switch, InputNumber, Row, Col } from "antd";
 import _ from "lodash";
 import { TextEditor } from "../../components";
 
 export default ({ option, visible, onOk, onCancel }) => {
   option.extra = option.extra || "";
-  option.size = option.size || "middle";
   option.htmlType = option.htmlType || "text";
   const [form] = Form.useForm();
   const initialValues = _.cloneDeep(option);
@@ -45,19 +44,13 @@ export default ({ option, visible, onOk, onCancel }) => {
         </Row>
         <Row gutter={20}>
           <Col span={12}>
-            <Form.Item label="HTML类型" name="htmlType" rules={[{ required: true, message: "必填项" }]}>
-              <Select placeholder="请选择">
-                <Select.Option value="text">文字</Select.Option>
-                <Select.Option value="email">邮箱</Select.Option>
-                <Select.Option value="password">密码</Select.Option>
-                <Select.Option value="color">颜色</Select.Option>
-                <Select.Option value="url">URL</Select.Option>
-              </Select>
+            <Form.Item label="是否必填" name="required">
+              <Switch checkedChildren="是" unCheckedChildren="否" />
             </Form.Item>
           </Col>
           <Col span={12}>
-            <Form.Item label="是否必填" name="required">
-              <Switch checkedChildren="是" unCheckedChildren="否" />
+            <Form.Item label="行" name="rows">
+              <InputNumber style={{ width: "100%" }} min={1} />
             </Form.Item>
           </Col>
         </Row>
@@ -70,25 +63,6 @@ export default ({ option, visible, onOk, onCancel }) => {
           <Col span={12}>
             <Form.Item label="最大长度" name="maxLength">
               <InputNumber style={{ width: "100%" }} min={1} placeholder="留空代表不限制" />
-            </Form.Item>
-          </Col>
-        </Row>
-        <Form.Item label="尺寸" name="size">
-          <Radio.Group>
-            <Radio value="small">小号</Radio>
-            <Radio value="middle">中号</Radio>
-            <Radio value="large">大号</Radio>
-          </Radio.Group>
-        </Form.Item>
-        <Row gutter={20}>
-          <Col span={12}>
-            <Form.Item label="前缀" name="prefix">
-              <Input type="text" placeholder="例如: +86" />
-            </Form.Item>
-          </Col>
-          <Col span={12}>
-            <Form.Item label="后缀" name="suffix">
-              <Input type="text" placeholder="例如: .com" />
             </Form.Item>
           </Col>
         </Row>

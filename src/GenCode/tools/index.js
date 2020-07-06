@@ -1,24 +1,11 @@
-import Divider from "./Divider/Divider";
-import DividerMeta from "./Divider/DividerMeta";
-import DividerEdit from "./Divider/DividerEdit";
-import Input from "./Input/Input";
-import InputMeta from "./Input/InputMeta";
-import InputEdit from "./Input/InputEdit";
-import P from "./P/P";
-import PMeta from "./P/PMeta";
-import PEdit from "./P/PEdit";
-import PageHeader from "./PageHeader/PageHeader";
-import PageHeaderMeta from "./PageHeader/PageHeaderMeta";
-import PageHeaderEdit from "./PageHeader/PageHeaderEdit";
-import Row from "./Row/Row";
-import RowMeta from "./Row/RowMeta";
-import RowEdit from "./Row/RowEdit";
-import Switch from "./Switch/Switch";
-import SwitchMeta from "./Switch/SwitchMeta";
-import SwitchEdit from "./Switch/SwitchEdit";
-import Table from "./Table/Table";
-import TableMeta from "./Table/TableMeta";
-import TableEdit from "./Table/TableEdit";
+import { Divider, DividerMeta, DividerEdit } from "./Divider";
+import { Input, InputMeta, InputEdit } from "./Input";
+import { P, PMeta, PEdit } from "./P";
+import { PageHeader, PageHeaderMeta, PageHeaderEdit } from "./PageHeader";
+import { Row, RowMeta, RowEdit } from "./Row";
+import { Switch, SwitchMeta, SwitchEdit } from "./Switch";
+import { Table, TableMeta, TableEdit } from "./Table";
+import { TextArea, TextAreaMeta, TextAreaEdit } from "./TextArea";
 
 export {
   Divider,
@@ -42,4 +29,7 @@ export {
   Table,
   TableMeta,
   TableEdit,
+  TextArea,
+  TextAreaMeta,
+  TextAreaEdit,
 };

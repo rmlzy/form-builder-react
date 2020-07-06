@@ -1,5 +1,5 @@
 import React from "react";
-import { Row, Col, Button, message, Modal } from "antd";
+import { InputNumber, Button, message, Modal } from "antd";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import _ from "lodash";
@@ -25,29 +25,41 @@ const GenCode = () => {
 
   const [schemaVisible, setSchemaVisible] = React.useState(false);
   const [codeVisible, setCodeVisible] = React.useState(false);
+  const [width, setWidth] = React.useState(980);
+  const [height, setHeight] = React.useState(750);
   const code = genClassCode(schema2code(schema));
   return (
     <DndProvider backend={HTML5Backend}>
-      <div className="gen-code-page">
-        <Row gutter={20}>
-          <Col span={19}>
-            <div className="action-bar">
-              <Button type="primary" style={{ marginRight: 10 }} onClick={() => setSchemaVisible(true)}>
-                查看Schema
-              </Button>
-              <Button type="primary" onClick={() => setCodeVisible(true)}>
-                查看Code
-              </Button>
-            </div>
-            <Stage schema={schema} />
-          </Col>
-          <Col span={5}>
-            <h2>控件</h2>
-            {tools.map((tool, i) => {
-              return <Tool key={i} {...tool} />;
-            })}
-          </Col>
-        </Row>
+      <div className="gen-code-page layout">
+        <div className="layout__hd clearfix">
+          <div className="action pull-left">
+            <InputNumber value={width} onChange={(val) => setWidth(val)} />
+          </div>
+          <div className="action pull-left">
+            <span>×</span>️
+          </div>
+          <div className="action pull-left">
+            <InputNumber value={height} onChange={(val) => setHeight(val)} />
+          </div>
+          <div className="action pull-right">
+            <span className="a" onClick={() => setCodeVisible(true)}>
+              查看Code
+            </span>
+          </div>
+          <div className="action pull-right">
+            <span className="a" style={{ marginRight: 10 }} onClick={() => setSchemaVisible(true)}>
+              查看Schema
+            </span>
+          </div>
+        </div>
+        <div className="layout__bd">
+          <Stage schema={schema} width={width} height={height} />
+        </div>
+        <div className="layout__sd">
+          {tools.map((tool, i) => {
+            return <Tool key={i} {...tool} />;
+          })}
+        </div>
       </div>
 
       <Modal

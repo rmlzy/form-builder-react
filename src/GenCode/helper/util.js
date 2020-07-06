@@ -152,15 +152,14 @@ export const schema2code = (schema) => {
 /**
  * 生成配置规则
  * @param required
- * @param {string} type
  * @returns {any}
  */
-export const genRules = ({ required }, type = "text") => {
+export const genRules = ({ required }) => {
   let rules = [];
   if (required) {
     rules.push({ required: true, message: "必填项" });
   }
-  return type === "text" ? JSON.stringify(rules) : rules;
+  return rules;
 };
 
 /**
