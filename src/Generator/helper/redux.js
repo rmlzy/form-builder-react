@@ -47,7 +47,7 @@ export const GeneratorSlice = createSlice({
       // 拖到Col中
       if (targetUuid.startsWith("Col__")) {
         const newSchema = schema.map((block) => {
-          if (block.uuid === targetUuid) {
+          if (block.component === "Row") {
             block.childes = block.childes.map((col) => {
               col.childes = col.childes || [];
               if (col.uuid === targetUuid) {

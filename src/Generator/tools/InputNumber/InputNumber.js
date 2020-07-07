@@ -3,7 +3,13 @@ import _ from "lodash";
 import { InputNumber, Form } from "antd";
 import { props2Text, genRules, genDangerHtml } from "../../helper/util";
 
-export default (option) => {
+const _getComponent = (option) => {
+  const formItemProps = {
+    name: option.name,
+    label: option.label,
+    extra: genDangerHtml(option.extra),
+    rules: genRules(option),
+  };
   const inputProps = _.pick(option, [
     "defaultValue",
     "size",
@@ -15,23 +21,39 @@ export default (option) => {
     "decimalSeparator",
     "step",
   ]);
-  inputProps.type = option.htmlType || "text";
-  const extraEl = genDangerHtml(option.extra);
-  const rulesJson = genRules({ required: option.required });
-  const component = (
-    <Form.Item label={option.label} extra={extraEl} rules={rulesJson}>
+  return (
+    <Form.Item {...formItemProps}>
       <InputNumber {...inputProps} />
     </Form.Item>
   );
-  const formItemPropText = {
-    label: option.label || "",
-    extra: option.extra || "",
-    rules: rulesJson.length ? JSON.stringify(rulesJson) : "",
+};
+
+const _getText = (option) => {
+  const formItemProps = {
+    name: option.name,
+    label: option.label,
+    extra: option.extra,
+    rules: genRules(option),
   };
-  const text = `
-  <Form.Item ${props2Text(formItemPropText)}>
+  const inputProps = _.pick(option, [
+    "defaultValue",
+    "size",
+    "allowClear",
+    "placeholder",
+    "min",
+    "max",
+    "precision",
+    "decimalSeparator",
+    "step",
+  ]);
+  return `
+  <Form.Item ${props2Text(formItemProps)}>
       <InputNumber ${props2Text(inputProps)} />
   </Form.Item>
   `;
-  return { component, text };
 };
+
+export default (option) => ({
+  component: _getComponent(option),
+  text: _getText(option),
+});
