@@ -1,5 +1,5 @@
 import React from "react";
-import { genDangerHtml, props2Text } from "../../helper/util";
+import { props2Text } from "../../helper/util";
 
 const _getComponent = (option) => {
   const pProps = {

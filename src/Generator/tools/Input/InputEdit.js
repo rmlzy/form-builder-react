@@ -1,26 +1,15 @@
 import React from "react";
 import { Drawer, Form, Button, Select, Input, Switch, InputNumber, Row, Col, Radio } from "antd";
-import _ from "lodash";
 import { TextEditor } from "../../components";
 
 export default ({ option, visible, onOk, onCancel }) => {
-  option.extra = option.extra || "";
-  option.size = option.size || "middle";
-  option.htmlType = option.htmlType || "text";
   const [form] = Form.useForm();
-  const initialValues = _.cloneDeep(option);
   const onFinish = (values) => {
     onOk(values);
   };
-  const onDrawerOk = () => {
-    form.submit();
-  };
-  const onDrawerCancel = () => {
-    onCancel();
-  };
   return (
-    <Drawer width="40%" title="输入框配置" visible={visible} onClose={onDrawerCancel}>
-      <Form form={form} initialValues={initialValues} layout="vertical" onFinish={onFinish}>
+    <Drawer width="40%" title="输入框配置" visible={visible} onClose={onCancel}>
+      <Form form={form} initialValues={option} layout="vertical" onFinish={onFinish}>
         <Row gutter={20}>
           <Col span={12}>
             <Form.Item label="标题：" name="label" rules={[{ required: true, message: "必填项" }]}>
@@ -86,7 +75,7 @@ export default ({ option, visible, onOk, onCancel }) => {
           <TextEditor />
         </Form.Item>
         <Form.Item>
-          <Button type="primary" onClick={onDrawerOk}>
+          <Button type="primary" onClick={() => form.submit()}>
             保存
           </Button>
         </Form.Item>

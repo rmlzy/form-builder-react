@@ -17,7 +17,7 @@ const _getComponent = (option) => {
         ));
         return (
           <Col key={colIndex} span={col.span}>
-            <Droppable name="Col" uuid={col.uuid} exclude={["Row"]}>
+            <Droppable name="Col" uuid={col.uuid} exclude={["Row", "Card"]}>
               <div className="col-highlight">{colChildEl}</div>
             </Droppable>
           </Col>

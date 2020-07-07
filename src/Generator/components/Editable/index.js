@@ -14,7 +14,7 @@ const Editable = ({ block = {}, children }) => {
   const cls = classnames({
     editable: true,
     active: block.uuid === activeUuid,
-    canDrop: block.component === "Row",
+    canDrop: ["Row", "Card"].includes(block.component),
   });
   const onOk = (values) => {
     const newBlock = { ...block, ...values };

@@ -34,10 +34,20 @@ export const GeneratorSlice = createSlice({
         const newSchema = [...schema, tool];
         state.schema = newSchema;
       }
+      // 拖到卡片中
+      if (targetUuid.startsWith("Card__")) {
+        const newSchema = schema.map((block) => {
+          if (block.uuid === targetUuid) {
+            block.childes.push(tool);
+          }
+          return block;
+        });
+        state.schema = newSchema;
+      }
       // 拖到Col中
       if (targetUuid.startsWith("Col__")) {
         const newSchema = schema.map((block) => {
-          if (block.component === "Row") {
+          if (block.uuid === targetUuid) {
             block.childes = block.childes.map((col) => {
               col.childes = col.childes || [];
               if (col.uuid === targetUuid) {

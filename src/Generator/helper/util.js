@@ -2,6 +2,7 @@ import React from "react";
 import _ from "lodash";
 import axios from "axios";
 import * as Tools from "../tools";
+import { icons as AntIcons, components as AntComponents } from "./antd";
 
 /**
  * 获取页面参数
@@ -26,73 +27,22 @@ export const getParameterByName = (name, url) => {
  * @returns {string}
  */
 const genAntdImport = (code = "") => {
-  const antCmpts = [
-    "Button",
-    "Row",
-    "Col",
-    "Divider",
-    "Affix",
-    "Breadcrumb",
-    "Dropdown",
-    "Menu",
-    "Pagination",
-    "PageHeader",
-    "Steps",
-    "AutoComplete",
-    "Checkbox",
-    "Cascader",
-    "DatePicker",
-    "Form",
-    "InputNumber",
-    "Input",
-    "Mentions",
-    "Rate",
-    "Radio",
-    "Switch",
-    "Slider",
-    "Select",
-    "TreeSelect",
-    "Transfer",
-    "TimePicker",
-    "Upload",
-    "Avatar",
-    "Badge",
-    "Comment",
-    "Collapse",
-    "Carousel",
-    "Card",
-    "Calendar",
-    "Descriptions",
-    "Empty",
-    "List",
-    "Popover",
-    "Statistic",
-    "Tree",
-    "Tooltip",
-    "Timeline",
-    "Tag",
-    "Tabs",
-    "Table",
-    "Alert",
-    "Drawer",
-    "Modal",
-    "Message",
-    "Notification",
-    "Progress",
-    "Popconfirm",
-    "Result",
-    "Spin",
-    "Skeleton",
-    "Anchor",
-    "BackTop",
-  ];
   const usedCmpts = [];
-  antCmpts.forEach((cmpt) => {
+  const usedIcons = [];
+  AntComponents.forEach((cmpt) => {
     if (code.includes(cmpt)) {
       usedCmpts.push(cmpt);
     }
   });
-  return `import { ${usedCmpts.join(",")} } from "antd"`;
+  AntIcons.forEach((icon) => {
+    if (code.includes(icon)) {
+      usedIcons.push(icon);
+    }
+  });
+  return [
+    usedCmpts.length ? `import { ${usedCmpts.join(",")} } from "antd";` : "",
+    usedIcons.length ? `import { ${usedIcons.join(",")} } from "@ant-design/icons";` : "",
+  ].join("\n");
 };
 
 /**
