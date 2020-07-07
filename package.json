@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "dev": "yarn run start",
     "start": "craco start",
     "build": "craco build && sh copy2server.sh",
     "test": "craco test",
@@ -16,7 +17,7 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "ace-builds": "^1.4.11",
-    "antd": "^4.4.0",
+    "antd": "^4.4.1",
     "axios": "^0.19.2",
     "classnames": "^2.2.6",
     "dayjs": "^1.8.28",

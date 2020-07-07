@@ -16,6 +16,33 @@
   float: right;
 }
 
+.sortable {
+  &__handle {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    cursor: move;
+  }
+
+  &__ghost {
+    position: relative;
+
+    &:before {
+      position: absolute;
+      top: -2px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      content: "";
+      background: red;
+    }
+  }
+
+  &__drag {
+    outline: 1px dotted #0170fe;
+  }
+}
+
 .a {
   color: #0170fe;
   cursor: pointer;
@@ -166,7 +193,7 @@
         outline-color: #e6a23c;
         background: transparent;
 
-        & > .editable__drag,
+        & > .editable__handle,
         & > .editable__actions {
           background: #e6a23c;
         }
@@ -177,13 +204,13 @@
       outline-color: #409eff;
       background: #ecf5ff;
 
-      & > .editable__drag,
+      & > .editable__handle,
       & > .editable__actions {
         display: flex;
       }
     }
 
-    &__drag {
+    &__handle {
       display: none;
       position: absolute;
       top: 0;
@@ -196,6 +223,7 @@
       color: #fff;
       background: #409eff;
       z-index: 10;
+      cursor: move;
     }
 
     &__actions {

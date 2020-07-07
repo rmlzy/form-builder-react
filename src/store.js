@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
-import genCode from "./GenCode/helper/redux";
+import Generator from "./Generator/helper/redux";
 
 export default configureStore({
-  reducer: { genCode },
+  reducer: { Generator },
 });

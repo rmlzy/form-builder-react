@@ -1,12 +1,12 @@
 import React from "react";
 import { HashRouter as Router, Switch, Route } from "react-router-dom";
-import GenCode from "./GenCode";
+import Generator from "./Generator";
 
 export default () => (
   <Router>
     <Switch>
       <Route exact path="/">
-        <GenCode />
+        <Generator />
       </Route>
     </Switch>
   </Router>
