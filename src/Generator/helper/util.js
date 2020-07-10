@@ -257,7 +257,7 @@ export const formatCode = (schema) => {
   return axios({
     method: "POST",
     url: "/api/builder/format",
-    data: { code },
+    data: { code, type: "REACT" },
   }).then((res) => res.data);
 };
 
@@ -271,6 +271,7 @@ export const save = async (schema) => {
     method: "POST",
     url: "/api/builder/save",
     data: {
+      type: "REACT",
       schema,
       code,
       token,
